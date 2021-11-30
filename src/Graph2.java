@@ -7,6 +7,13 @@ class Graph2 {
 
     // Array of lists
     private LinkedList<Integer> adj[];
-
+    
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    Graph2(int v) {
+        V = v;
+        adj = new LinkedList[v];
+        for (int i = 0; i < v; ++i)
+            adj[i] = new LinkedList();
+    }
 
 }
