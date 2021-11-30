@@ -13,3 +13,5 @@ c - f - i
 
 it then performs a BFT and DFT  
 the graph is stored in a class with a list of nodes each with their own list of linked nodes representing the edges  
+
+Link for video: https://youtu.be/D-uWnXfBS2Q
