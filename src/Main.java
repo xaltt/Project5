@@ -11,7 +11,10 @@
 	        g.addEdge(0,3);
 	        //B
 	        g.addEdge(1,4);
-
+	        //C
+	        g.addEdge(2,1);
+	        //D
+	        g.addEdge(3,6);
 
 	    }
 	}
