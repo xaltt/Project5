@@ -9,7 +9,8 @@
 	        g.addEdge(0,1);
 	        g.addEdge(0,4);
 	        g.addEdge(0,3);
-	        
+	        //B
+	        g.addEdge(1,4);
 
 
 	    }
