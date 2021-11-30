@@ -33,5 +33,12 @@ class Graph2 {
                 DFSUtil(n, visited);
         }
     }
+    
+    // Does DFS traversal
+    void DFT(int v) {
+        boolean visited[] = new boolean[V];
+        DFSUtil(v, visited);
+        }
+
 
 }
