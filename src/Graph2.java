@@ -20,5 +20,18 @@ class Graph2 {
     void addEdge(int v, int w) {
         adj[v].add(w);
     }
+    
+    void DFSUtil(int v, boolean visited[]) {
+        // Mark node and print
+        visited[v] = true;
+        System.out.print((char)(v + 65) + " ");
+
+        Iterator<Integer> i = adj[v].listIterator();
+        while (i.hasNext()) {
+            int n = i.next();
+            if (!visited[n])
+                DFSUtil(n, visited);
+        }
+    }
 
 }
