@@ -1,55 +1,71 @@
-import java.util.LinkedList;
-import java.util.*;
- 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 
-public class Graph extends Main {
-     private int V;   // No. of vertices
-        private LinkedList<Integer> adj[]; //Adjacency Lists
+public class Graph {
+    ArrayList<Node> graph;
+    Stack<Node> stack = new Stack<Node>();
+    Queue<Node> queue = new PriorityQueue<Node>();
+    public Graph() {
+        graph = new ArrayList<Node>();
+    }
 
 
-        @SuppressWarnings({ "unchecked", "rawtypes" })
-        Graph(int v)
-        {
-            V = v;
-            adj = new LinkedList[v];
-            for (int i=0; i<v; ++i)
-                adj[i] = new LinkedList();
+    public void addNode(Node node) {
+        graph.add(node);
+    }
+
+    public void addEdge(Node parent, Node child) {
+        parent.addPointer(child);
+    }
+
+    public void printGraph() {
+        for(Node node: graph) {
+            node.printNode();
         }
-        // adds edge
-        void addEdge(int v,int w)
-        {
-            adj[v].add(w);
+    }
+
+    public void DFT(Node node) {
+        for(Node n: graph) {
+            n.status = 0;
         }
-
-        // prints from source s
-        void BFS(int s)
-        {
-            // Marks visited vertices
-            boolean visited[] = new boolean[V];
-
-            //create q
-            LinkedList<Integer> queue = new LinkedList<Integer>();
-
-            // mark the actual visited vert
-            visited[s]=true;
-            queue.add(s);
-
-            while (queue.size() != 0)
-            {
-                // Dequeue and print
-                s = queue.poll();
-
-                System.out.print((char)(s + 65) + " ");
-                Iterator<Integer> i = adj[s].listIterator();
-                while (i.hasNext())
-                {
-                    int n = i.next();
-                    if (!visited[n])
-                    {
-                        visited[n] = true;
-                        queue.add(n);
-                    }
+        stack.add(node);
+        node.status = 1;
+        int processed = 0;
+        while(processed < graph.size()) {
+            Node current = stack.pop();
+            System.out.print(current.getLabel() + " ");
+            for(Node adj: current.pointers) {
+                if(adj.status == 0) {
+                    stack.push(adj);
+                    adj.status = 1;
                 }
             }
+            current.status = 3;
+            processed++;
         }
+    }
+    public void BFT(Node node) {
+        for(Node n: graph) {
+            n.status = 0;
+        }
+        queue.add(node);
+        node.status = 1;
+        int processed = 0;
+        while(processed < graph.size()) {
+            Node current = queue.poll();
+            System.out.print(current.getLabel() + " ");
+            for(Node adj: current.pointers) {
+                if(adj.status == 0) {
+                    queue.add(adj);
+                    adj.status = 1;
+                }
+            }
+            current.status = 3;
+            processed++;
+        }
+
+        System.out.println("");
+    }
 }
