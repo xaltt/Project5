@@ -27,6 +27,17 @@ public class Graph {
     }
 
     public void DFT(Node node) {
+    	/*
+         * adds starting node to stack and changes status to waiting
+         * 
+         * in the loop:
+         * pops head node and prints its label
+         * pushes all ready adjacent nodes to stack
+         * changes status of popped node to processed
+         * increments loop counter
+         * 
+         * 
+         */
         for(Node n: graph) {
             n.status = 0;
         }
@@ -47,6 +58,17 @@ public class Graph {
         }
     }
     public void BFT(Node node) {
+    	/*
+         * adds starting node to queue and changes status to waiting
+         * 
+         * in the loop:
+         * pops head node and prints its label
+         * pushes all ready adjacent nodes to queue
+         * changes status of popped node to processed
+         * increments loop counter
+         * 
+         * 
+         */
         for(Node n: graph) {
             n.status = 0;
         }
