@@ -44,7 +44,11 @@ public class Main {
         graph.addNode(h);
         graph.addNode(i);
 
-
+        System.out.println("a - d - g  \r\n" + 
+                		"| \\     |  \r\n" + 
+                		"b - e - h  \r\n" + 
+                		"|   | / |  \r\n" + 
+        				"c - f - i  ");
         System.out.println("Breadth First Traversal starting at a:");
         graph.BFT(a);
         System.out.println("Depth First Traversal starting at a:");
